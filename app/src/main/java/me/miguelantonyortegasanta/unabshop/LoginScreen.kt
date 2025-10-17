@@ -19,12 +19,20 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.google.firebase.Firebase
+import com.google.firebase.Firebase
 import me.miguelantonyortegasanta.unabshop.R
+import me.miguelantonyortegasanta.unabshop.ui.theme.UnabShopTheme
 
 @Preview
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen() {
+fun LoginScreen(onClickRegister :()->Unit = {}) {
+
+    val auth = Firebase.auth
+
+
+
     Scaffold { paddingValues ->
         Column(
             modifier = Modifier
@@ -78,6 +86,11 @@ fun LoginScreen() {
                     unfocusedBorderColor = Color(0xFFCCCCCC)
                 )
             )
+            Spacer(modifier = Modifier.height(24.dp))
+
+
+
+
 
             Spacer(modifier = Modifier.height(24.dp))
             Button(
@@ -92,7 +105,7 @@ fun LoginScreen() {
             }
 
             Spacer(modifier = Modifier.height(16.dp))
-            TextButton(onClick = {}) {
+            TextButton(onClick = onClickRegister) {
                 Text("¿No tienes una cuenta? Regístrate", color = Color(0xFFFF9900))
             }
         }

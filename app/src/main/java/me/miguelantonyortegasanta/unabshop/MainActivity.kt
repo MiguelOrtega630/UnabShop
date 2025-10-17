@@ -21,6 +21,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+           UnabShopTheme {
+                NavigationApp(onClickRegister = {})
+            }
 
 
             val navController = rememberNavController()
@@ -33,7 +36,9 @@ class MainActivity : ComponentActivity() {
 
                 }
                 composable(route = "register") {
-                    RegisterScreen()
+                    RegisterScreen(onClickRegister = {
+
+                    })
                 }
                 composable(route = "home") {
                     HomeScreen()
